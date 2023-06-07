@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Let's go KNU!</title>
+        <style>
+            /* 탭 전체 스타일 */
+            .tabs {
+            margin-top: 50px;
+            padding-bottom: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 700px;
+            margin: 0 auto;}
+
+            /* 탭 스타일 */
+            .tab_item {
+            width: calc(100%/4);
+            height: 50px;
+            border-bottom: 3px solid #333333;
+            background-color: #f8f8f8;
+            line-height: 50px;
+            font-size: 16px;
+            text-align: center;
+            color: #333333;
+            display: block;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            }
+            .tab_item:hover {
+            opacity: 0.75;
+            color: #EF1FFA;
+            }
+
+            /* 라디오 버튼 UI삭제*/
+            input[name="tab_item"] {
+            display: none;
+            }
+
+            /* 탭 컨텐츠 스타일 */
+            .tab_content {
+            display: none;
+            padding: 40px 40px 0;
+            clear: both;
+            overflow: hidden;
+            }
+            
+            /* 선택 된 탭 콘텐츠를 표시 */
+            #restraunt:checked ~ #restraunt_content,
+            #soju_beer:checked ~ #soju_beer_content,
+            #study:checked ~ #study_content,
+            #play:checked ~ #play_content {
+            display: block;
+            }
+
+            /* 선택된 탭 스타일 */
+            .tabs input:checked + .tab_item {
+            background-color: #333333;
+            color: #fff;
+            }
+            
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            header, footer {
+                padding: 50px;
+            }
+
+            h1, h2 {
+                color: #333;
+            }
+
+            /* 헤더 스타일 */
+            header {
+                background: #f2f2f2;
+                text-align: center;
+                align-items: center;
+            }
+
+            /* 푸터 스타일 */
+            footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            }
+
+            /* 반응형 스타일 */
+            @media screen and (max-width: 768px) {
+            /* 화면 너비가 768px 이하일 때 적용되는 스타일 */
+            header, section, footer {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+            
+            ul {
+                text-align: center;
+            }
+            }
+            .block{width: 200px; height: 200px; padding: 20px; margin: 20px; display: inline; background-color: beige; text-align: center;
+            border: 3px solid skyblue; line-height: 175px; text-decoration-line: none;}
+
+            img {
+                width: 200px;
+                height: 200px;
+                border-radius: 70%;
+            }
+            .location {
+                float: right;
+            }
+            footer {
+                height: 10%;
+            }
+            /*탭 메뉴로 꾸미기*/
+            /*먹거리: 맛집, 같이 즐길 거리: 볼링장, 코인노래방, PC방, 술집, 보드게임카페
+            공부: 스터디카페, 24시 무인 카페 등등, 혼자 즐길 거리: ...? */
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>강원대학교(KNU) 후문 주변을 소개합니다!</h1>
+        </header>
+        <nav>
+            <div class="tabs">
+                <input id="restraunt" type="radio" name="tab_item" checked>
+                <label class="tab_item" for="restraunt">맛집두리</label>
+                <input id="soju_beer" type="radio" name="tab_item">
+                <label class="tab_item" for="soju_beer">술ㄹ두리</label>
+                <input id="study" type="radio" name="tab_item">
+                <label class="tab_item" for="study">공부두리</label>
+                <input id="play" type="radio" name="tab_item">
+                <label class="tab_item" for="play">놀거리</label>
+                <div class="tab_content" id="restraunt_content">
+                    <h2>맛집두리</h2>
+                    <p>학교 주변 맛집에 대한 간단한 소개 내용이 들어가는 섹션입니다.</p>
+                    <ul>
+                        <img src="./image/월미당 사진.jpg" class="picture">
+                        <img src="./image/월미당 위치.png" class="location">
+                        <li id="restraunt_content_1">월미당</li>
+                        <ol>
+                            <li>주소: 강원 춘천시 서부대성로 227번길 3 1층</li>
+                            <li>영업시간: 11:00 - 20:30 (일요일 정기휴무)</li>
+                            <li>주 메뉴 및 가격: 차돌쌀국수 - 10,000원, 양지쌀국수 - 10,000원</li>
+                            <li>평가: 쌀국수의 양도 많은편이고, 한국 스타일 고기국수 같은 느낌으로 나온다.
+                                육수가 밥 말아 먹고싶은 생각이 들 정도로 담백하고 맛있어서 또 오고싶게 하는 맛이다. 강추</li>
+                        </ol>
+                        <br>
+                        <img src="./image/소쿠리 사진.jpg" class="picture">
+                        <img src="./image/소쿠리 위치.png" class="location">
+                        <li id="restraunt_content_2">소쿠리 해장국</li>
+                        <ol>
+                            <li>주소: 강원 춘천시 서부대성로 223-2</li>
+                            <li>영업시간: 17:00 - 09:00</li>
+                            <li>주 메뉴 및 가격: 뼈없는 허파전골(뚝배기) - 9,000</li>
+                            <li>평가: 술 먹은 다음날 무조건 가야하는 곳!! 순대 시키면 나오는 내장 허파를 뼈없는(?) 뼈해장국에 추가하여
+                                주는데 필자는 밥을 한 공기만 먹은 적이 없다. 감자탕 버전의 허파전골이 있는데 요건 3명이상 갔을 때 술과 함께 먹으면
+                                술이 무한으로 들어간다. 가격은 변동되기 전 가격밖에 없어서 아쉽게도 넣지 못했다.
+                            </li>
+                        </ol>
+                        <br>
+                        <img src="./image/신촌돈까스 사진.jpg" class="picture">
+                        <img src="./image/신촌돈까스 위치.png" class="location">
+                        <li id="restraunt_content_3">신촌 돈까스</li>
+                        <ol>
+                            <li>주소: 강원 춘천시 서부대성로227번길 24</li>
+                            <li>영업시간: 10:00 - 21:00(20시 마감)</li>
+                            <li>주 메뉴 및 가격: 김치볶음밥 - 4000원, 돈까스 - 4000원, 순두부찌개 - 5000원, 제육덮밥 - 5000원</li>
+                            <li>평가: 가성비 끝판왕이다. 요즘 고물가 시대의 한줄기 빛. 김치볶음밥은 계란이 올라간 채로 나오는데 양이 정말 많다.
+                                돈까스는 흔히 우리가 아는 정겨운 맛이다. 원래 아는 맛이 무서운 법. 하지만 여기에 밥도 많이 나온다.
+                                순두부찌개는 양념이 복불복이다. 언제는 좀 짜고 언제는 좀 느끼하고 하지만 맛있다.
+                            </li>
+                        </ol>
+                        <br>
+                        <img src="./image/만석식당 사진.jpg" class="picture">
+                        <img src="./image/만석식당 위치.png" class="location">
+                        <li id="restraunt_content_4">만석 식당</li>
+                        <ol>
+                            <li>주소: 강원 춘천시 백령로138번길 35</li>
+                            <li>영업시간: 점심, 저녁장사(정확한 시간이 나와있지 않음)(일요일 휴무)</li>
+                            <li>주 메뉴 및 가격: 직화불고기 정식 - 9000원, 제육불고기 정식 - 17000원</li>
+                            <li>평가: 가게 간판에 걸맞게 만석일 때가 많다. 직화불고기 정식은 육쌈냉면에서 먹는 고기와 밥, 조그마한 냉면, 된장찌개 등이 나오며
+                                양이 푸짐하다. 제육불고기 정식은 2인 기준 17,000원인데, 2인 이상만 주문이 가능하다. 필자는 개인적으로 직화불고기가 더 맛있었다.
+                            </li>
+                        </ol>
+                        <br>
+                        <img src="./image/단하비 사진.jpg" class="picture">
+                        <img src="./image/단하비 위치.png" class="location">
+                        <li id="restraunt_content_5">단하비</li>
+                        <ol>
+                            <li>주소: 강원 춘천시 서부대성로 235 . 2층</li>
+                            <li>영업시간: 11:30 - 21:00 (평일 브레이크타임 14:30 - 17:00)</li>
+                            <li>주 메뉴 및 가격: 알리오 올리오 - 10900원, 명란 파스타 - 11900원, 까르보나라 파스타 - 12900원, 봉골레 파스타 - 13500원, 해물 토마토 파스타 - 13500원</li>
+                            <li>평가: 사장님의 자녀의 이름이 단하, 단비이다. 사장님이 수제로 하셔서 맛있다. 식전 빵과 후식 디저트까지 무료로 제공된다. 라스트 오더는 20:00분이다.
+                                연인과 데이트 코스로 적합하다.
+                            </li>
+                        </ol>
+                    </ul>
+                </div>
+                <div class="tab_content" id="soju_beer_content">
+                    <h2>술ㄹ두리</h2>
+                    <p>학교 주변 술집에 대한 간단한 소개 내용이 들어가는 섹션입니다.</p>
+                    <ul>
+                        <li id="soju_beer_1">춘자</li>
+                            <ol>
+                                <li>주소: 강원 춘천시 백령로138번길 40</li>
+                                <li>영업시간: 18:00 - 05:00</li>
+                                <li>주 메뉴 및 가격: 김치돼지찌개-11,000원, 계란찜-7,000원</li>
+                                <li>평가: 포장마차 감성의 술집으로 찌개, 분식, 계절안주 및 주류에 맞는 다양한 메뉴들로 구성되어 있다.
+                                    넘칠듯한 계란찜이 이 집의 인기 메뉴로 인스타에 자주 올라오곤 한다.
+                                    좌석에 등 받이가 없고, 가끔 주방 사정으로 고기 메뉴들이 안될 때가 있으니 참고하도록.
+                                </li>
+                            </ol>
+                            <br>
+                        <li id="soju_beer_2">#고래</li>
+                            <ol>
+                                <li>주소: 강원 춘천시 효자동 626-8</li>
+                                <li>영업시간: 17:30 - 03:30</li>
+                                <li>주 메뉴 및 가격: 스지탕(기본 or 매운맛)-26,000원, 소고기 샤브샤브(기본 or 매운맛)-20,000</li>
+                                <li>평가: 2층은 개인 손님, 3층은 단체 손님으로 운영하는 가게로 이 집은 단체로 가는걸 추천한다.
+                                    추천 메뉴가 따로 필요 없을 정도로 기본 안주를 주문하게 된다면 사장님의 후한 인심으로 뷔페를 맛 볼 수 있다.(2층은 잘 모름)
+                                    3층은 창문이 열리지 않아 여름에는 더울 수 있음으로 참고하도록.
+                                </li>
+                            </ol>
+                            <br>
+                        <li id="soju_beer_3">파파야</li>
+                            <ol>
+                                <li>주소: 강원 춘천시 백령로138번길 39</li>
+                                <li>영업시간: 17:00 - 07:00</li>
+                                <li>주 메뉴 및 가격: 파스탕-17,000원, 차돌숙주볶음-16,000원</li>
+                                <li>평가: 다양한 메뉴들과 맛이 보장된 집, 어떤 메뉴를 시켜도 실패하지 않는다.
+                                    늦은 시간까지 영업을 하기 때문에 오래 술을 마실 사람들은 강추한다.
+                                    인기가 많은 술집인 만큼 많이 시끄러울 수 있음으로 참고하도록.
+                                </li>
+                            </ol>
+                            <br>
+                        <li id="soju_beer_4">주동아리</li>
+                            <ol>
+                                <li>주소: 강원 춘천시 백령로138번길 26</li>
+                                <li>영업시간: </li>
+                                <li>주 메뉴 및 가격: 떠 먹는 피자(소-10,000원, 대-15,000), 감자튀김-4,000원</li>
+                                <li>평가: 감자대학교에 온 학생으로써 감자튀김을 안 먹어볼순 없지 많은 양의 감자로 가성비 좋은 술집
+                                    개인적으로 다른 메뉴는 가성비가 좋다던가 맛있다고 생각하지 않음.
+                                    또 술을 잘 못 마시는 사람들도 마실 수 있는 주동아리만의 보드카맛 소주 소드카도 강추 메뉴
+                                </li>
+                            </ol>
+                    </ul>
+                </div>
+                <div class="tab_content" id="study_content">
+                    <h2>공부두리</h2>
+                    <p>학교 주변 스터디를 포함해 편안한 휴식을 즐기기 좋은 카페들에 대해 소개합니다.</p>
+                    <ul>
+                        <img src="./image/엔제리너스 사진.jpg" class="picture">
+                        <img src="./image/엔제리너스 위치.png" class="location">
+                        <li id="study_content_1">엔제리너스</li>
+                            <ol> 
+                                <li>주소 : 강원 춘천시 서부대성로 229</li>
+                                <li>영업시간 : 매일 12:00 ~ 2:00 / 연중 무휴</li>
+                                <li>평가 : 강원대 후문에서 가까운 위치에 있어 접근이 쉽다. 
+                                    1층은 비교적 자유로운 분위기로 소통하기에 좋으며 
+                                    2층은 편안한 분위기에서 학습하는 이용객들이 많다.
+                                    그만큼 좌석이 많지만 항상 이용객이 많아 시험기간에는 자리를 잡기 어렵다. 
+                                    1층과 2층 사이에 남자화장실 하나, 2층에 남자/여자 화장실이 하나씩 있다. 
+                                    2층엔 실내 흡엽실이 따로 있다는 특징이 있다.
+                                </li>
+                            </ol>
+                            <br>
+                        </li>
+                        <br>
+                        <img src="./image/스타벅스 사진.jpg" class="picture">
+                        <img src="./image/스타벅스 위치.png" class="location">
+                        <li id="study_content_2">스타벅스</li>
+                            <ol>
+                                <li>주소 : 강원 춘천시 서부대성로 243-1</li>
+                                <li>영업시간 : 평일 8:00 ~ 22:00, 주말 9:00 ~ 22:00</li>
+                                <li>평가 : 1층은 상대적으로 자유로운 분위기에 소통 장소이고,
+                                    2층과 3충은 대부분 공부를 하는 이용객들이 많아 조용한 분위기이다. 
+                                    2층에 여자화장실, 3층에 남자 화장실이 하나씩 있다. 
+                                    가장 대중적인 브랜드 카페인만큼 건물이 크고 좌석도 여러 형태로 다양하게 있다.
+                                </li>
+                            </ol>
+                        <br>
+                        <img src="./image/카페포너드 사진.jpg" class="picture">
+                        <img src="./image/카페포너드 위치.png" class="location">
+                        <li id="study_content_3">카페 포 너드</li>
+                            <ol>
+                                <li>주소 : 강원 춘천시 백령로 137 2층(효자동)</li>
+                                <li>영업시간 : 평일 11:00 ~ 4:00, 주말(공휴일) 12:00 ~ 4:00</li>
+                                <li>평가 : 도화골 사거리(축사)에 가깝게 위치해 있어 접근하기 쉽다.
+                                    정돈된 공사장 같은 분위기의 감성 카페로 편안한 분위기이다. 
+                                    화장실은 남/녀 각 하나씩 카페 내에 있다.
+                                    영업 시작 및 종료 시간이 늦어 시험기간에는 공부를 하고자하는 학생들도 많다.
+                                    특히 카페 주인의 강아지가 있다는 특징이 있다(애견 카페는 아니므로 주의).
+                                </li>
+                            </ol>
+                        <br>
+                        <img src="./image/빈티지 다락방 사진.jpg" class="picture">
+                        <img src="./image/빈티지 다락방 위치.png" class="location">
+                        <li id="study_content_4">빈티지 다락방</li>
+                            <ol>
+                                <li>주소 : 강원 춘천시 서부대성로 243 지하</li>
+                                <li>영업시간 : 매일 11:00 ~ 1:00</li>
+                                <li>평가 : 강원대 후문에서 가까워 바로 접근하기 좋은 위치이다.
+                                    지하에 위치한 빈티지 감성 카페로 좌식 공간, 커튼이 달린 공간과 같이
+                                    다양한 형태의 좌석이 있다. 지하인만큼 어두운 조명의 조용한 분위기이며
+                                    보드 게임도 있어 휴식과 공부를 함께 하기에 좋은 분위기 이다. 
+                                    추가금을 통해 커피 리필이 가능하다. 화장실은 카페 외부에 하나가 존재한다.
+                                </li>
+                            </ol>
+                        <br>
+                        <img src="./image/투미 사진.jpg" class="picture">
+                        <img src="./image/투미 위치.png" class="location">
+                        <li id="study_content_5">투미</li>
+                            <ol>
+                                <li>주소 : 강원 춘천시 효자동 638 2층</li>
+                                <li>영업시간 : 매일 24시간 </li>
+                                <li>평가 : 어두운 조명의 편안한 분위기의 무인카페로 빈티지한 감성이 있다.
+                                    무인카페인만큼 음료에 대한 불편을 바로 해결받기는 어려우나 그만큼 가격대가 낮고,
+                                    시럽 및 정수기와 같이 편의를 위한 물품이 잘 구비되어 있다. 화장실은 남녀공용으로 
+                                    하나가 출입문 바깥에 1곳 존재하며 비밀번호를 통해 이용해야 한다.
+                                </li>
+                            </ol>
+                    </ul>
+                </div>
+                 <div class="tab_content" id="play_content">
+                    <h2>놀거리</h2>
+                    <p>학교 주변에서의 다양한 놀거리를 안내합니다.</p>
+                    <ul>
+                        <img src="./image/쿠프만 사진.jpg" class="picture">
+                        <img src="./image/쿠프만 위치.png" class="location">
+                        <li id="funny_1">쿠프만153 보드게임카페
+                            <ol>
+                                <li>주소: 강원 춘천시 서부대성로 241 2층</li>
+                                <li>영업시간: 11:00 ~ 02:00</li>
+                                <li>가격: 1인당 음료수 1 결제 시 영업 종료 시간까지 즐길 수 있음.(음료수 가격: 5000원~)</li>
+                                <li>제한: 미성년자의 경우, 고스톱이나 포커같은 카드게임은 제한될 수 있음에 유의해야 함.</li>
+                                <li>평가: 음료수의 가격이 다소 비싸다고 느낄 수 있으나, 5000원 이상의 음료수
+                                    가격만 지불하면 보드게임카페 이용이 가능하다는 점에서는 가성비가 좋다고 할 수 있음.<br>
+                                    보드게임 한 종류당 2개 이상 대부분 구비되어 있어 여러 테이블에서 같은 보드게임을 즐길 수 있음.
+                                </li>
+                            </ol>
+                            <br>
+                        </li>
+                        <img src="./image/CC볼링장 사진.jpg" class="picture">
+                        <img src="./image/CC볼링장 위치.png" class="location">
+                        <li id="funny_2">C.C 볼링센터
+                            <ol>
+                                <li>주소: 강원 춘천시 서부대성로 239번길 29 2층</li>
+                                <li>영업시간: 평일 11:00 ~ 03:00, 주말 10:00 ~ 04:00
+                                    <br>&nbsp;&nbsp;&nbsp;(영업 마감 시간 변동 有)
+                                </li>
+                                <li>가격: 선불일 경우 3게임 10000원, 후불일 경우 1게임 3500원
+                                    <br>&nbsp;&nbsp;&nbsp;(볼링화 대여료X)
+                                </li>
+                                <li>레인: 총 16번 레인까지 있으며, 한 레인당 최대 5명까지 이용 가능함.</li>
+                                <li>평가: 2020년도에 리모델링하여 시설이 깔끔하고 볼링공이 다양하지만, 저녁~밤 시간대에 볼링을 치려면
+                                    1시간 이상 대기해야 하는 경우도 있으며, 볼링 동호회에서 정기전을 진행할 때가 있어
+                                    대기 시간이 1시간+@일 때도 있어 기다리는 게 싫다면 추천하지 않음.
+                                </li>
+                            </ol>
+                            <br>
+                        </li>
+                        <img src="./image/필노래방 사진.jpg" class="picture">
+                        <img src="./image/필노래방 위치.png" class="location">
+                        <li id="funny_3">feel 코인노래연습장
+                            <ol>
+                                <li>주소: 강원 춘천시 서부대성로 231번길 1 2층</li>
+                                <li>영업시간: 10:30 ~ 02:00</li>
+                                <li>가격: 2곡 500원, 5곡 1000원(방의 크기에 따라 가격이 다름)
+                                    <br>&nbsp;&nbsp;회원제가 있어 회원가입 후 로그인을 하면 금액 충전 시 추가 적립이 됨.
+                                    <br>&nbsp;&nbsp;&nbsp;(ex. 10000원 충전 시 2000원 추가 적립,
+                                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20000원 충전 시 5000원 추가 적립)
+                                </li>
+                                <li>평가: 강원대학교 후문 부근에 있는 다른 코인노래방들보다 가성비가 뛰어나며, 
+                                    에어컨을 자유롭게 작동시킬 수 있어 노래 부를 때 더워질 때 에어컨을 켤 수 있음. 
+                                    또한, 정수기가 있어 목 마를 때 물 리필이 가능함.
+                                    <br>&nbsp;&nbsp;(단, 종이컵은 1인 1컵이니 유의하기 바람)
+                                </li>
+                            </ol>
+                            <br>
+                        </li>
+                        <img src="./image/포토이즘 사진.png" class="picture">
+                        <img src="./image/포토이즘 위치.png" class="location">
+                        <li id="funny_4">photoism
+                            <ol>
+                                <li>주소: 강원 춘천시 서부대성로 239번길 1층</li>
+                                <li>부스: 총 2개(회색 배경, 흰색 배경)</li>
+                                <li>가격:
+                                    <ol>
+                                        <li>basic 4-cut: 4000원</li>
+                                        <li>basic 6-cut: 5000원</li>
+                                        <li>film 3-cut: 4000원</li>
+                                        <li>wide 4-cut: 5000원</li>
+                                        <li>layer 4-cut: 5000원</li>
+                                    </ol>
+                                </li>
+                                <li>평가: 무난하게 사진 찍을 수 있는 셀프사진관임.
+                                    대부분의 사람들은 주로 이곳에서 촬영하다보니 평소에도 대기가 있는 경우가 있음.
+                                </li>
+                            </ol>
+                            <br>
+                        </li>
+                        <img src="./image/포토인더박스 사진.jpg" class="picture">
+                        <img src="./image/포토인더박스 위치.png" class="location">
+                        <li id="funny_5">photo in the box
+                            <ol>
+                                <li>주소: 강원 춘천시 서부대성로 241번길 1층</li>
+                                <li>부스: 총 2개(큰 부스 1개, 작은 부스 1개이며 부스마다 컷 수가 다름)</li>
+                                <li>가격:
+                                    <ol>작은 부스(하늘색 배경)
+                                        <li>basic 4-cut: 4000원</li>
+                                        <li>basic 6-cut: 5000원</li>
+                                        <li>different 4-cut: 6000원</li>
+                                        <li>cutting 4-cut: 4000원</li>
+                                    </ol>
+                                    <ol>큰 부스(회색 배경)
+                                        <li>basic 6-cut: 5000원</li>
+                                        <li>layer 4-cut: 5000원</li>
+                                    </ol>
+                                </li>
+                                <li>평가: 다양한 컨셉으로 촬영할 수 있도록 
+                                    다양한 소품(모자, 선글라스, 머리띠, 조화목걸이 등등)이 구비되어 있으며, 
+                                    큰 부스의 경우 종이꽃가루를 뽑기 기계에서 뽑아서(1번 뽑기:500원) 촬영 시 꽃가루가 흩날리게
+                                    표현이 가능함. 다만, 밤 시간대(22시~0시)에는 술 마시고 사진 찍으러 오는 사람이
+                                    있어 대기 시간이 좀 긴 경우도 있음.
+                                </li>
+                            </ol>
+                            <br>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <footer>@Made by Major Runner Team of "All in One"</footer>
+    </body>
+</html>
